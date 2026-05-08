@@ -17,7 +17,7 @@ import Link from "next/link"; // Next.js Link ব্যবহার করা �
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "@/assets/svg/logo.svg";
 import Image from "next/image";
-import { Person, Search } from "@mui/icons-material";
+import { Person, Search, ShoppingCart } from "@mui/icons-material";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -111,13 +111,21 @@ const Navbar = () => {
           href="/"
           sx={{
             fontWeight: 600,
+            fontFamily: "Bubblegum Sans, cursive",
             textDecoration: "none",
             display: "flex",
             alignItems: "center",
           }}
         >
           FLA{" "}
-          <Box component="span" sx={{ color: "primary.main" }}>
+          <Box
+            component="span"
+            sx={{
+              color: "primary.main",
+              fontFamily: "sans-serif",
+              fontWeight: 700,
+            }}
+          >
             ME
           </Box>
         </Typography>
@@ -147,6 +155,7 @@ const Navbar = () => {
 
         <Stack direction="row" spacing={1} alignItems="center">
           <Search />
+          <ShoppingCart />
           <Person
             sx={{
               color: "secondary.main",
