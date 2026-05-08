@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import Link from "next/link"; // Next.js Link ব্যবহার করা হয়েছে
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "@/assets/svg/logo.svg"
+import logo from "@/assets/svg/logo.svg";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -35,8 +35,6 @@ const Navbar = () => {
     { label: "ছেলে", path: "/men" },
     { label: "মেয়ে", path: "/women" },
     { label: "কসমেটিক্স", path: "/cosmetics" },
-    { label: "আমাদের সাথে যুক্ত হোন", path: "/join" },
-    { label: "ব্লগ", path: "/blogs" },
     { label: "যোগাযোগ", path: "/contact" },
   ];
 
@@ -83,41 +81,44 @@ const Navbar = () => {
   );
 
   return (
-    <Container
-      maxWidth="xl"
+    <Stack
+      borderRadius={2}
+      bgcolor="#DFD7D0"
       sx={{
-        position: "absolute",
-        zIndex: 1200,
+        // position: "sticky",
         top: 0,
-        left: 0,
-        right: 0,
-        pointerEvents: "none", // কন্টেইনার যেন নিচের এলিমেন্টের ক্লিক না আটকায়
+        zIndex: 1200,
+        mt: 2,
+        borderBottom: "2px solid",
+        borderColor: "primary.main",
       }}
     >
       <Stack
+        component={Container}
         py={2}
         px={3}
-        my={2}
-        bgcolor="white"
-        borderRadius={2}
         direction="row"
         justifyContent="space-between"
         alignItems="center"
-        boxShadow="0px 4px 12px rgba(0,0,0,0.1)"
-        sx={{ pointerEvents: "auto" }} // শুধুমাত্র নেভবার স্ট্যাক ক্লিক গ্রহণ করবে
       >
-        {/* <Typography
+        <Typography
+          color="secondary.main"
           variant="h5"
           component={Link}
           href="/"
-          sx={{ fontWeight: 600, textDecoration: "none", color: "secondary.main" }}
+          sx={{
+            fontWeight: 600,
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+          }}
         >
-          <Box component="span" sx={{ color: "primary.main" }}>AL</Box> ARAFAT
-        </Typography> */}
+          FLA{" "}
+          <Box component="span" sx={{ color: "primary.main" }}>
+            ME
+          </Box>
+        </Typography>
 
-        <Box>
-          <Image src={logo} alt="logo" width={50}/>
-        </Box>
         <Stack
           direction="row"
           spacing={2}
@@ -154,7 +155,7 @@ const Navbar = () => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={() => setMobileOpen(true)} // এখানে সরাসরি true সেট করা নিরাপদ
+            onClick={() => setMobileOpen(true)} 
             sx={{ display: { lg: "none" }, color: "secondary.main" }}
           >
             <MenuIcon />
@@ -169,12 +170,12 @@ const Navbar = () => {
         sx={{
           display: { xs: "block", lg: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: 250 },
-          zIndex: 1300, // ড্রয়ার যেন সবার উপরে থাকে
+          zIndex: 1300, 
         }}
       >
         {drawer}
       </Drawer>
-    </Container>
+    </Stack>
   );
 };
 
