@@ -14,9 +14,9 @@ const HeroSection = () => {
       <Stack>
         <Box>
           <Typography variant="h5" component="h1" sx={{ fontWeight: "bold" }}>
-            Look Better. Feel Strong{" "} <br />
+            Look Better. Feel Strong <br />
             <Box component="span" sx={{ color: "primary.main" }}>
-              Save 30% on Your First Order! This Offer just for sazid!
+              Save 30% on Your First Order! This Offer just for Sarowar Jahan!
             </Box>
           </Typography>
         </Box>
