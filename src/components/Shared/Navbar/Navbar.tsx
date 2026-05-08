@@ -17,6 +17,7 @@ import Link from "next/link"; // Next.js Link ব্যবহার করা �
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "@/assets/svg/logo.svg";
 import Image from "next/image";
+import { Person, Search } from "@mui/icons-material";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -49,7 +50,10 @@ const Navbar = () => {
           color: "secondary.main",
         }}
       >
-        AL ARAFAT
+        FLA{" "}
+        <Box component="span" sx={{ color: "primary.main" }}>
+          ME
+        </Box>
       </Typography>
       <List>
         {menuItems.map((item) => (
@@ -142,14 +146,13 @@ const Navbar = () => {
         </Stack>
 
         <Stack direction="row" spacing={1} alignItems="center">
-          <Button
-            component={Link}
-            href="/donate"
-            variant="contained"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            সাইন ইন
-          </Button>
+          <Search />
+          <Person
+            sx={{
+              color: "secondary.main",
+              display: { xs: "none", lg: "block" },
+            }}
+          />
 
           <IconButton
             color="inherit"
