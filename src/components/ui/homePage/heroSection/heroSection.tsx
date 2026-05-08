@@ -16,7 +16,7 @@ const HeroSection = () => {
           <Typography variant="h5" component="h1" sx={{ fontWeight: "bold" }}>
             Look Better. Feel Strong{" "} <br />
             <Box component="span" sx={{ color: "primary.main" }}>
-              Save 30% on Your First Order!
+              Save 30% on Your First Order! This Offer just for sazid!
             </Box>
           </Typography>
         </Box>
