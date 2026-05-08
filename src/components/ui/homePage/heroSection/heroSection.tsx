@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 
 const HeroSection = () => {
   return (
@@ -11,7 +11,7 @@ const HeroSection = () => {
         height: "100vh",
       }}
     >
-      <Stack>
+      <Container>
         <Box>
           <Typography variant="h5" component="h1" sx={{ fontWeight: "bold" }}>
             Look Better. Feel Strong <br />
@@ -19,8 +19,12 @@ const HeroSection = () => {
               Save 30% on Your First Order!
             </Box>
           </Typography>
+          <Typography>
+            lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            cumque, voluptate, voluptate, voluptate, voluptate, voluptate
+          </Typography>
         </Box>
-      </Stack>
+      </Container>
     </Box>
   );
 };

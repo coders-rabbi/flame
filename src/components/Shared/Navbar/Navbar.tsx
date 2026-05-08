@@ -111,10 +111,10 @@ const Navbar = () => {
           href="/"
           sx={{
             fontWeight: 600,
-            fontFamily: "Bubblegum Sans, cursive",
+            fontFamily: "sans-serif, Arial, Helvetica",
             textDecoration: "none",
             display: "flex",
-            alignItems: "center",
+            alignItems: "center", 
           }}
         >
           FLA{" "}
@@ -122,7 +122,7 @@ const Navbar = () => {
             component="span"
             sx={{
               color: "primary.main",
-              fontFamily: "sans-serif",
+              fontFamily: "Bubblegum Sans, cursive",
               fontWeight: 700,
             }}
           >
