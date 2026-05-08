@@ -75,7 +75,7 @@ const Navbar = () => {
         sx={{ mt: 2 }}
         onClick={() => setMobileOpen(false)}
       >
-        দান করুন
+        সাইন ইন
       </Button>
     </Box>
   );
@@ -88,9 +88,8 @@ const Navbar = () => {
         // position: "sticky",
         top: 0,
         zIndex: 1200,
-        mt: 2,
         borderBottom: "2px solid",
-        borderColor: "primary.main",
+        borderColor: "#e0e0e0",
       }}
     >
       <Stack
@@ -149,13 +148,13 @@ const Navbar = () => {
             variant="contained"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            দান করুন
+            সাইন ইন
           </Button>
 
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={() => setMobileOpen(true)} 
+            onClick={() => setMobileOpen(true)}
             sx={{ display: { lg: "none" }, color: "secondary.main" }}
           >
             <MenuIcon />
@@ -170,7 +169,7 @@ const Navbar = () => {
         sx={{
           display: { xs: "block", lg: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: 250 },
-          zIndex: 1300, 
+          zIndex: 1300,
         }}
       >
         {drawer}
