@@ -51,7 +51,7 @@ const NewArraival = () => {
       <Grid container spacing={4} mt={4}>
         {/* Card 1 */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img01}
               alt="New Arrival"
@@ -84,7 +84,7 @@ const NewArraival = () => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img02}
               alt="New Arrival"
@@ -117,7 +117,7 @@ const NewArraival = () => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card sx={{ maxWidth: 345 }}>
+          <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img03}
               alt="New Arrival"
