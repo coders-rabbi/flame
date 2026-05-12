@@ -34,7 +34,14 @@ const Footer = () => {
 
   return (
     <Box mt={4} bgcolor="#f5f5f5">
-      <Grid container mx="auto" spacing={4} justifyContent="space-around">
+      <Grid
+        container
+        mx="auto"
+        // spacing={4}
+        justifyContent="space-around"
+        py={5}
+        sx={{ px: { xs: 2, sm: 4 } }}
+      >
         {/* লোগো এবং কন্টাক্ট সেকশন */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h5" fontWeight="bold" color="primary" mb={2}>
@@ -94,7 +101,7 @@ const Footer = () => {
         </Grid>
 
         {/* SHOP সেকশন */}
-        <Grid item xs={6} sm={6} md={2}>
+        <Grid item xs={6} sm={6} md={2} sx={{ mt: { xs: 2, sm: 2, md: 0 } }}>
           <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             SHOP
           </Typography>
@@ -114,7 +121,7 @@ const Footer = () => {
         </Grid>
 
         {/* OUR COMPANY সেকশন */}
-        <Grid item xs={6} sm={6} md={2}>
+        <Grid item xs={6} sm={6} md={2} sx={{ mt: { xs: 2, sm: 2, md: 0 } }}>
           <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             OUR COMPANY
           </Typography>
@@ -134,7 +141,7 @@ const Footer = () => {
         </Grid>
 
         {/* IMPORTANT LINKS সেকশন */}
-        <Grid item xs={12} sm={6} md={2.5}>
+        <Grid item xs={12} sm={6} md={2.5} sx={{ mt: { xs: 2, sm: 2, md: 0 } }}>
           <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             IMPORTANT LINKS
           </Typography>
