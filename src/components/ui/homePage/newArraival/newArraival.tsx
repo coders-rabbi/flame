@@ -40,7 +40,7 @@ const NewArraival = () => {
       </Typography>
 
       {/* card section */}
-      <Grid container spacing={2} mt={4}>
+      <Grid container spacing={2} mt={4} alignItems="center" justifyContent="center">
         {/* Card 1 */}
         <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
