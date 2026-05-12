@@ -21,7 +21,7 @@ const Footer = () => {
     <Box mt={4} bgcolor="#f5f5f5">
       <Grid
         container
-        maxWidth="xl"
+        maxWidth="lg"
         mx="auto"
         spacing={4}
         py={4}
@@ -29,14 +29,14 @@ const Footer = () => {
         justifyContent="space-between"
       >
         {/* লোগো সেকশন */}
-        <Grid item xs={12} md={2}>
+        <Grid item xs={6} sm={6} md={2}>
           <Typography variant="h6" fontWeight="bold">
             Flame
           </Typography>
         </Grid>
 
         {/* SHOP সেকশন */}
-        <Grid item xs={12} sm={6} md={2.4}>
+        <Grid item xs={6} sm={6} md={2.4}>
           <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
             SHOP
           </Typography>
@@ -57,7 +57,7 @@ const Footer = () => {
         </Grid>
 
         {/* OUR COMPANY সেকশন */}
-        <Grid item xs={12} sm={6} md={2.4}>
+        <Grid item xs={6} sm={6} md={2.4}>
           <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
             OUR COMPANY
           </Typography>
@@ -78,7 +78,7 @@ const Footer = () => {
         </Grid>
 
         {/* SUPPORT সেকশন */}
-        <Grid item xs={12} sm={6} md={2.4}>
+        <Grid item xs={6} sm={6} md={2.4}>
           <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
             SUPPORT
           </Typography>
@@ -99,7 +99,7 @@ const Footer = () => {
         </Grid>
 
         {/* IMPORTANT LINKS সেকশন */}
-        <Grid item xs={12} sm={6} md={2.4}>
+        <Grid item xs={6} sm={6} md={2.4}>
           <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
             IMPORTANT LINKS
           </Typography>
