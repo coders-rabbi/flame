@@ -34,15 +34,7 @@ const Footer = () => {
 
   return (
     <Box mt={4} bgcolor="#f5f5f5">
-      <Grid
-        container
-        mx="auto"
-        spacing={4}
-        py={6}
-        px={2}
-        justifyContent="space-between"
-      >
-
+      <Grid container mx="auto" spacing={4} justifyContent="space-around">
         {/* লোগো এবং কন্টাক্ট সেকশন */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h5" fontWeight="bold" color="primary" mb={2}>
