@@ -1,18 +1,33 @@
-import { Box, Grid, Typography, Link } from "@mui/material";
+import React from "react";
+import {
+  Box,
+  Grid,
+  Typography,
+  Link,
+  Stack,
+  TextField,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Footer = () => {
   // লিস্ট আইটেমগুলো
-  const shopLinks = ["সব পণ্য", "ছেলে", "মেয়ে", "কসমেটিক্স", "টি-শার্ট"];
-  const companyLinks = ["আমাদের গল্প", "আমাদের টিম", "ব্লগ", "আমাদের ভিশন"];
-  const supportLinks = [
+  const shopLinks = ["সব পণ্য", "ছেলে", "মেয়ে", "কসমেটিক্স", "টি-শার্ট"];
+  const companyLinks = [
+    "আমাদের গল্প",
+    "আমাদের টিম",
+    "ব্লগ",
+    "আমাদের ভিশন",
     "যোগাযোগ",
-    "হোলসেল",
     "অর্ডার ট্র্যাক",
-    "ফ্রিকোয়েন্টলি আস্কড কোয়েশ্চন",
   ];
   const importantLinks = [
     "প্রাইভেসি পলিসি",
     "শর্তাদি",
+    "হোলসেল",
     "শিপিং পলিসি",
     "রিফান্ড পলিসি",
   ];
@@ -21,108 +36,135 @@ const Footer = () => {
     <Box mt={4} bgcolor="#f5f5f5">
       <Grid
         container
-        maxWidth="lg"
         mx="auto"
         spacing={4}
-        py={4}
+        py={6}
         px={2}
         justifyContent="space-between"
       >
-        {/* লোগো সেকশন */}
-        <Grid item xs={6} sm={6} md={2}>
-          <Typography variant="h6" fontWeight="bold">
+
+        {/* লোগো এবং কন্টাক্ট সেকশন */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Typography variant="h5" fontWeight="bold" color="primary" mb={2}>
             Flame
           </Typography>
+
+          <Stack direction="row" alignItems="center" spacing={1} mb={1.5}>
+            <EmailIcon fontSize="small" color="action" />
+            <Typography variant="body2" color="textSecondary">
+              contact@flame.com
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" spacing={1} mb={3}>
+            <PhoneIcon fontSize="small" color="action" />
+            <Typography variant="body2" color="textSecondary">
+              (+880) 1303329413
+            </Typography>
+          </Stack>
+
+          {/* ইমেল ইনপুট ফিল্ড */}
+          <Box sx={{ maxWidth: 280 }}>
+            <Typography variant="body2" fontWeight="600" mb={1}>
+              নিউজলেটার সাবস্ক্রাইব করুন
+            </Typography>
+            <TextField
+              fullWidth
+              size="small"
+              placeholder="আপনার ইমেল লিখুন"
+              variant="outlined"
+              sx={{
+                bgcolor: "white",
+                borderRadius: "8px",
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "8px",
+                },
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      size="small"
+                      sx={{
+                        bgcolor: "primary.main",
+                        color: "white",
+                        "&:hover": { bgcolor: "primary.dark" },
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <ArrowForwardIcon fontSize="small" />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
         </Grid>
 
         {/* SHOP সেকশন */}
-        <Grid item xs={6} sm={6} md={2.4}>
-          <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
+        <Grid item xs={6} sm={6} md={2}>
+          <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             SHOP
           </Typography>
-          <Box>
+          <Stack spacing={1}>
             {shopLinks.map((item) => (
               <Link
                 key={item}
                 href="#"
                 underline="hover"
-                display="block"
                 color="textSecondary"
-                mb={1}
+                variant="body2"
               >
                 {item}
               </Link>
             ))}
-          </Box>
+          </Stack>
         </Grid>
 
         {/* OUR COMPANY সেকশন */}
-        <Grid item xs={6} sm={6} md={2.4}>
-          <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
+        <Grid item xs={6} sm={6} md={2}>
+          <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             OUR COMPANY
           </Typography>
-          <Box>
+          <Stack spacing={1}>
             {companyLinks.map((item) => (
               <Link
                 key={item}
                 href="#"
                 underline="hover"
-                display="block"
                 color="textSecondary"
-                mb={1}
+                variant="body2"
               >
                 {item}
               </Link>
             ))}
-          </Box>
-        </Grid>
-
-        {/* SUPPORT সেকশন */}
-        <Grid item xs={6} sm={6} md={2.4}>
-          <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
-            SUPPORT
-          </Typography>
-          <Box>
-            {supportLinks.map((item) => (
-              <Link
-                key={item}
-                href="#"
-                underline="hover"
-                display="block"
-                color="textSecondary"
-                mb={1}
-              >
-                {item}
-              </Link>
-            ))}
-          </Box>
+          </Stack>
         </Grid>
 
         {/* IMPORTANT LINKS সেকশন */}
-        <Grid item xs={6} sm={6} md={2.4}>
-          <Typography variant="h6" component="h2" fontWeight={600} mb={2}>
+        <Grid item xs={12} sm={6} md={2.5}>
+          <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             IMPORTANT LINKS
           </Typography>
-          <Box>
+          <Stack spacing={1}>
             {importantLinks.map((item) => (
               <Link
                 key={item}
                 href="#"
                 underline="hover"
-                display="block"
                 color="textSecondary"
-                mb={1}
+                variant="body2"
               >
                 {item}
               </Link>
             ))}
-          </Box>
+          </Stack>
         </Grid>
       </Grid>
 
       {/* কপিরাইট সেকশন */}
-      <Box py={2} bgcolor="#f5f5f5" borderTop="1px solid #e0e0e0">
-        <Typography align="center" variant="body1" color="textSecondary">
+      <Box py={3} bgcolor="#eee" borderTop="1px solid #e0e0e0">
+        <Typography align="center" variant="body2" color="textSecondary">
           &copy; {new Date().getFullYear()}{" "}
           <Box component="span" fontWeight="bold" color="primary.main">
             Flame Street Wear
