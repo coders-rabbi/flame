@@ -54,6 +54,7 @@ const NewArraival = () => {
               src={img01}
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+              objectFit="cover"
             />
             <Box p={1}>
               <Typography variant="h6" component="h2">
@@ -81,12 +82,14 @@ const NewArraival = () => {
             </Box>
           </Card>
         </Grid>
+
         <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
-              src={img01}
+              src={img02}
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+              objectFit="cover"
             />
             <Box p={1}>
               <Typography variant="h6" component="h2">
@@ -114,12 +117,14 @@ const NewArraival = () => {
             </Box>
           </Card>
         </Grid>
+
         <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
-              src={img01}
+              src={img03}
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+              objectFit="cover"
             />
             <Box p={1}>
               <Typography variant="h6" component="h2">
@@ -147,12 +152,14 @@ const NewArraival = () => {
             </Box>
           </Card>
         </Grid>
+
         <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
-              src={img01}
+              src={img04}
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+              objectFit="cover"
             />
             <Box p={1}>
               <Typography variant="h6" component="h2">
