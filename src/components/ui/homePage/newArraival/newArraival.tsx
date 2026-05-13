@@ -48,7 +48,7 @@ const NewArraival = () => {
         justifyContent="center"
       >
         {/* Card 1 */}
-        <Grid item xs={12} sm={4} md={3} position="relative">
+        <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img01}
@@ -83,7 +83,7 @@ const NewArraival = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3} position="relative">
+        <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img02}
@@ -118,7 +118,7 @@ const NewArraival = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3} position="relative">
+        <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img03}
@@ -153,7 +153,7 @@ const NewArraival = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3} position="relative">
+        <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img04}
