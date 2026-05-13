@@ -32,9 +32,10 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { label: "সব পণ্য", path: "/" },
+    { label: "সব পণ্য", path: "/products" },
+    { label: "ভেপ", path: "/vape" },
     { label: "ছেলে", path: "/men" },
-    { label: "মেয়ে", path: "/women" },
+    { label: "মেয়ে", path: "/women" },
     { label: "কসমেটিক্স", path: "/cosmetics" },
     { label: "যোগাযোগ", path: "/contact" },
   ];
@@ -114,7 +115,7 @@ const Navbar = () => {
             fontFamily: "sans-serif, Arial, Helvetica",
             textDecoration: "none",
             display: "flex",
-            alignItems: "center", 
+            alignItems: "center",
           }}
         >
           FLA{" "}

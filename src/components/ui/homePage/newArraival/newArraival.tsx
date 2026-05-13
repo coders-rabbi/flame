@@ -40,7 +40,13 @@ const NewArraival = () => {
       </Typography>
 
       {/* card section */}
-      <Grid container spacing={2} mt={4} alignItems="center" justifyContent="center">
+      <Grid
+        container
+        spacing={2}
+        mt={4}
+        alignItems="center"
+        justifyContent="center"
+      >
         {/* Card 1 */}
         <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
@@ -49,8 +55,8 @@ const NewArraival = () => {
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
             />
-            <Box p={2}>
-              <Typography variant="h5" component="h2">
+            <Box p={1}>
+              <Typography variant="h6" component="h2">
                 New Arrival
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -58,15 +64,15 @@ const NewArraival = () => {
                 arrivals.
               </Typography>
               <Typography
-                variant="h6"
+                fontSize="1rem"
+                fontWeight={700}
                 color="primary.main"
                 fontFamily="Inter, Circular"
-                mt={1}
               >
-                Price: 550৳
+                BDT: 550৳
               </Typography>
             </Box>
-            <Box p={1}>
+            <Box px={1} pb={1}>
               <Link href="/product/1" passHref>
                 <Button variant="contained" fullWidth>
                   Order Now
@@ -75,15 +81,15 @@ const NewArraival = () => {
             </Box>
           </Card>
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid item xs={6} sm={4} md={3} position="relative">
           <Card sx={{ maxWidth: "100%" }}>
             <Image
               src={img01}
               alt="New Arrival"
               style={{ width: "100%", maxHeight: "300px", height: "300px" }}
             />
-            <Box p={2}>
-              <Typography variant="h5" component="h2">
+            <Box p={1}>
+              <Typography variant="h6" component="h2">
                 New Arrival
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -91,15 +97,81 @@ const NewArraival = () => {
                 arrivals.
               </Typography>
               <Typography
-                variant="h6"
+                fontSize="1rem"
+                fontWeight={700}
                 color="primary.main"
                 fontFamily="Inter, Circular"
-                mt={1}
               >
-                Price: 550৳
+                BDT: 550৳
               </Typography>
             </Box>
+            <Box px={1} pb={1}>
+              <Link href="/product/1" passHref>
+                <Button variant="contained" fullWidth>
+                  Order Now
+                </Button>
+              </Link>
+            </Box>
+          </Card>
+        </Grid>
+        <Grid item xs={6} sm={4} md={3} position="relative">
+          <Card sx={{ maxWidth: "100%" }}>
+            <Image
+              src={img01}
+              alt="New Arrival"
+              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+            />
             <Box p={1}>
+              <Typography variant="h6" component="h2">
+                New Arrival
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Discover the latest trends in fashion and lifestyle with our new
+                arrivals.
+              </Typography>
+              <Typography
+                fontSize="1rem"
+                fontWeight={700}
+                color="primary.main"
+                fontFamily="Inter, Circular"
+              >
+                BDT: 550৳
+              </Typography>
+            </Box>
+            <Box px={1} pb={1}>
+              <Link href="/product/1" passHref>
+                <Button variant="contained" fullWidth>
+                  Order Now
+                </Button>
+              </Link>
+            </Box>
+          </Card>
+        </Grid>
+        <Grid item xs={6} sm={4} md={3} position="relative">
+          <Card sx={{ maxWidth: "100%" }}>
+            <Image
+              src={img01}
+              alt="New Arrival"
+              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+            />
+            <Box p={1}>
+              <Typography variant="h6" component="h2">
+                New Arrival
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Discover the latest trends in fashion and lifestyle with our new
+                arrivals.
+              </Typography>
+              <Typography
+                fontSize="1rem"
+                fontWeight={700}
+                color="primary.main"
+                fontFamily="Inter, Circular"
+              >
+                BDT: 550৳
+              </Typography>
+            </Box>
+            <Box px={1} pb={1}>
               <Link href="/product/1" passHref>
                 <Button variant="contained" fullWidth>
                   Order Now
@@ -109,72 +181,6 @@ const NewArraival = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img03}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-            />
-            <Box p={2}>
-              <Typography variant="h5" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                variant="h6"
-                color="primary.main"
-                fontFamily="Inter, Circular"
-                mt={1}
-              >
-                Price: 550৳
-              </Typography>
-            </Box>
-            <Box p={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img04}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-            />
-            <Box p={2}>
-              <Typography variant="h5" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                variant="h6"
-                color="primary.main"
-                fontFamily="Inter, Circular"
-                mt={1}
-              >
-                Price: 550৳
-              </Typography>
-            </Box>
-            <Box p={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
         <Box mt={4} display="flex" justifyContent="center" width="100%">
           <Link href="/products" passHref>
             <Button variant="contained" fullWidth>
