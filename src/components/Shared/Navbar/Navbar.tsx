@@ -92,7 +92,6 @@ const Navbar = () => {
       sx={{
         // position: "sticky",
         top: 0,
-        zIndex: 1200,
         borderBottom: "2px solid",
         borderColor: "#e0e0e0",
       }}
