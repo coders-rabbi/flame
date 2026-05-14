@@ -16,7 +16,7 @@ const ProductDetails = () => {
     <Container>
       <Grid container spacing={0} mt={5}>
         {/* products details */}
-        <Grid item xs={12} md={8} bgcolor="red">
+        <Grid item xs={12} md={8} >
           <Grid container gap={2}>
             <Grid
               item
@@ -34,7 +34,6 @@ const ProductDetails = () => {
                   width: "100%",
                   height: "100%",
                   boxShadow: 1,
-                  background: "green",
                 }}
               >
                 <Image
