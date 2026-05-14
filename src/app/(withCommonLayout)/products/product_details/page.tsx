@@ -12,6 +12,7 @@ import ProductImg01 from "@/assets/image/4.jpeg";
 import Image from "next/image";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useState } from "react";
+import FAQSection from "@/components/ui/productsDescription/productsDescription";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
@@ -25,11 +26,19 @@ const ProductDetails = () => {
     }
   };
 
+  const sizes: string[] = ["M", "L", "XL"];
+
   return (
     <Container>
       <Grid container spacing={0} mt={5}>
         {/* products details */}
         <Grid item xs={12} md={8}>
+          <Box>
+            <Typography fontSize="1.8rem" fontWeight={600} mb="15px">
+              Shoppig Bag
+            </Typography>
+            <Divider sx={{ mb: "15px", mr: "15px" }} />
+          </Box>
           <Grid container gap={2}>
             <Grid
               item
@@ -65,7 +74,7 @@ const ProductDetails = () => {
                 <Typography variant="h5" fontWeight={500}>
                   New Arrival
                 </Typography>
-                <Typography variant="h6" fontWeight={600} mt={2}>
+                <Typography variant="h6" fontWeight={600} mt={1}>
                   BDT 550৳
                 </Typography>
                 <Typography variant="h6" fontWeight={600}>
@@ -74,13 +83,30 @@ const ProductDetails = () => {
                     Black/White
                   </Box>
                 </Typography>
-                <Typography variant="h6" fontWeight={600}>
-                  Size:{" "}
-                  <Box component="span" fontWeight={500} fontSize="1rem">
-                    M/L/XL/XXL
-                  </Box>
-                </Typography>
 
+                <Box
+                  component="span"
+                  fontWeight={500}
+                  fontSize="1rem"
+                  display="flex"
+                  alignItems="center"
+                  mt={2}
+                  gap={2}
+                >
+                  <Typography variant="h6" fontWeight={600}>
+                    Size:{" "}
+                  </Typography>
+                  <div className="flex gap-4">
+                    {sizes.map((size: string, index: number) => (
+                      <button
+                        key={index}
+                        className={`w-[42px] h-[32px] border text-[15px] font-medium transition-all duration-300`}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </Box>
                 <Stack direction="row" gap={1} mt={2}>
                   <Typography variant="h6" fontWeight={600}>
                     Quantity:
@@ -109,9 +135,16 @@ const ProductDetails = () => {
                 </Stack>
 
                 <Box mt={2}>
-                  <Button variant="contained" endIcon={<ShoppingBagIcon />}>
-                    Add Cart
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    endIcon={<ShoppingBagIcon />}
+                  >
+                    Save Cart
                   </Button>
+                </Box>
+                <Box>
+                  <FAQSection />
                 </Box>
               </Box>
             </Grid>
@@ -119,7 +152,7 @@ const ProductDetails = () => {
         </Grid>
 
         {/* order summary */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} sx={{ mt: { xs: "25px", md: "52px" } }}>
           <Box bgcolor="#F5F5F7" borderRadius={3} p={2.5}>
             <Typography variant="h5" fontWeight={700}>
               Order Summary
