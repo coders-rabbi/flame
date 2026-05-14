@@ -39,15 +39,17 @@ const ProductBanner = () => {
               <Box maxWidth="220px">
                 <Typography
                   color="primary.main"
-                  variant="h6"
                   fontWeight={500}
                   textAlign="right"
+                  sx={{ fontSize: { xs: "15px", md: "1rem" } }}
+                  mb={1}
                 >
-                  Trendy and stylish
+                  Trendy & stylish
                 </Typography>
                 <Typography
                   color="secondary.main"
                   fontSize="1.5rem"
+                  sx={{ fontSize: { xs: "18px", md: "1.6rem" } }}
                   fontWeight={700}
                   lineHeight={1.2}
                   textAlign="right"
