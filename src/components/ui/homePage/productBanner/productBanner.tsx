@@ -74,7 +74,7 @@ const ProductBanner = () => {
           </Box>
         </Grid>
 
-        {/* Right Side Column for Card 02, 03, and 04 */}
+        {/* Right Side Column for Card 02, 03,04 */}
         <Grid item xs={12} md={7}>
           <Grid container spacing={2}>
             {/* Card 02 */}
