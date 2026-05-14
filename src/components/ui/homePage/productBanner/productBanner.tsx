@@ -223,7 +223,7 @@ const ProductBanner = () => {
                 borderRadius={4}
                 sx={{
                   background:
-                    "linear-gradient(to right, #d6cbc0 0%, #f4f1ee 100%)",
+                    "linear-gradient(to right, #DFD7D0 0%, #DFD8D4 100%)",
                   p: 2,
                   display: "flex",
                   alignItems: "center",
@@ -231,7 +231,7 @@ const ProductBanner = () => {
                 }}
               >
                 <Grid container alignItems="center">
-                  <Grid item xs={8} pl={2}>
+                  <Grid item xs={8} pl={1}>
                     <Typography
                       fontSize=".8rem"
                       fontWeight={700}
@@ -247,14 +247,14 @@ const ProductBanner = () => {
                     </Typography>
                     <Typography
                       fontSize="1.5rem"
-                      color="white"
+                      color="secondary.body"
                       fontWeight={700}
                     >
                       Latest Collection 2026
                     </Typography>
                     <Button
                       variant="text"
-                      sx={{ color: "white", mt: 1 }}
+                      sx={{ color: "primary", mt: 1 }}
                       endIcon={<ArrowForwardIosIcon />}
                     >
                       Explore More
