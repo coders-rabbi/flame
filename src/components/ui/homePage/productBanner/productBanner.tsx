@@ -52,7 +52,7 @@ const ProductBanner = () => {
                   lineHeight={1.2}
                   textAlign="right"
                 >
-                  Men's Collection
+                  Men&apos;s Collection
                 </Typography>
                 <Typography
                   color="secondary.main"
