@@ -65,8 +65,9 @@ interface Product {
 }
 
 const ProductDetails = ({ params }: PageProps) => {
-  const [count, setCount] = useState<number>(1);
   const [product, setProduct] = useState<Product | null>(null);
+  const [count, setCount] = useState<number>(1);
+  const [selectedsize, setSize] = useState<string>();
 
   console.log(product, params);
 
@@ -160,18 +161,20 @@ const ProductDetails = ({ params }: PageProps) => {
                   {product?.organization?.brand}
                 </Typography>
 
-                <Typography variant="h6" fontWeight={600} mt={1}>
-                  BDT {product?.pricingInventory?.discountPrice}৳
-                </Typography>
+                <Stack direction="row" alignItems="center" gap={1.5} mt={1}>
+                  <Typography variant="h6" fontWeight={600}>
+                    BDT {product?.pricingInventory?.discountPrice}৳
+                  </Typography>
 
-                <Typography
-                  sx={{
-                    textDecoration: "line-through",
-                    color: "gray",
-                  }}
-                >
-                  BDT {product?.pricingInventory?.price}৳
-                </Typography>
+                  <Typography
+                    sx={{
+                      textDecoration: "line-through",
+                      color: "gray",
+                    }}
+                  >
+                    BDT {product?.pricingInventory?.price}৳
+                  </Typography>
+                </Stack>
 
                 <Typography mt={1}>
                   {product?.basicInfo?.shortDescription}
@@ -203,10 +206,15 @@ const ProductDetails = ({ params }: PageProps) => {
                     {product?.variation?.size?.map(
                       (size: string, index: number) => (
                         <button
+                          onClick={() => setSize(size)}
                           key={index}
                           className="w-[42px] h-[32px] border text-[15px] font-medium transition-all duration-300"
                         >
-                          {size}
+                          {size === selectedsize ? (
+                            <Typography color="primary">{size}</Typography>
+                          ) : (
+                            <>{size}</>
+                          )}
                         </button>
                       ),
                     )}
