@@ -75,7 +75,7 @@ const ProductDetails = ({ params }: PageProps) => {
     const fetchProduct = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/products/${params.product_id}`,
+          `https://al-arafatfoundation-server.vercel.app/products/${params.product_id}`,
         );
 
         const data = await res.json();
