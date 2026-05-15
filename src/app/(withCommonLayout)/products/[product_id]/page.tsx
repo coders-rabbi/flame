@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Box,
   Button,
@@ -8,39 +9,120 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import ProductImg01 from "@/assets/image/4.jpeg";
 import Image from "next/image";
+import ProductImg01 from "@/assets/image/4.jpeg";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FAQSection from "@/components/ui/productsDescription/productsDescription";
-// import useProducts from "@/hooks/useProducts";
 
-const ProductDetails = () => {
-  const [count, setCount] = useState(1);
+interface PageProps {
+  params: {
+    product_id: string;
+  };
+}
+
+interface Product {
+  id: number;
+  basicInfo: {
+    productName: string;
+    shortDescription: string;
+    longDescription: string;
+  };
+
+  pricingInventory: {
+    price: number;
+    discountPrice: number;
+    sku: string;
+    stockKeepingUnit: number;
+    stockStatus: string;
+  };
+
+  variation: {
+    size: string[];
+    color: string;
+    material: string;
+  };
+
+  media: {
+    mainImage: string;
+    galleryImages: string[];
+    thumbnailImage: string;
+  };
+
+  organization: {
+    category: string;
+    searchTags: string[];
+    brand: string;
+  };
+
+  advanceInfo: {
+    rating: number;
+    reviews: number;
+    weight: string;
+    dimensions: string;
+    warrantyReturnPolicy: string;
+  };
+}
+
+const ProductDetails = ({ params }: PageProps) => {
+  const [count, setCount] = useState<number>(1);
+  const [product, setProduct] = useState<Product | null>(null);
+
+  console.log(product, params);
+
+  // Fetch Single Product
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/products/${params.product_id}`,
+        );
+
+        const data = await res.json();
+
+        setProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProduct();
+  }, [params.product_id]);
 
   const handleIncrement = () => {
     setCount((prev) => prev + 1);
   };
+
   const handleDecrement = () => {
     if (count > 1) {
       setCount((prev) => prev - 1);
     }
   };
 
-  const sizes: string[] = ["M", "L", "XL"];
+  // Loading State
+  if (!product) {
+    return (
+      <Container>
+        <Typography mt={5}>Loading...</Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container>
       <Grid container spacing={0} mt={5}>
-        {/* products details */}
+        {/* Product Details */}
         <Grid item xs={12} md={8}>
           <Box>
             <Typography fontSize="1.8rem" fontWeight={600} mb="15px">
-              Shoppig Bag
+              {product?.basicInfo?.productName}
             </Typography>
+
             <Divider sx={{ mb: "15px", mr: "15px" }} />
           </Box>
+
           <Grid container gap={2}>
+            {/* Product Image */}
             <Grid
               item
               xs={12}
@@ -61,8 +143,9 @@ const ProductDetails = () => {
               >
                 <Image
                   src={ProductImg01}
-                  alt="Product Image"
+                  alt={product?.basicInfo?.productName}
                   fill
+                  unoptimized
                   style={{
                     objectFit: "contain",
                   }}
@@ -70,21 +153,39 @@ const ProductDetails = () => {
               </Box>
             </Grid>
 
+            {/* Product Info */}
             <Grid item xs={12} md={6}>
               <Box>
                 <Typography variant="h5" fontWeight={500}>
-                  New Arrival
+                  {product?.organization?.brand}
                 </Typography>
+
                 <Typography variant="h6" fontWeight={600} mt={1}>
-                  BDT 550৳
+                  BDT {product?.pricingInventory?.discountPrice}৳
                 </Typography>
-                <Typography variant="h6" fontWeight={600}>
+
+                <Typography
+                  sx={{
+                    textDecoration: "line-through",
+                    color: "gray",
+                  }}
+                >
+                  BDT {product?.pricingInventory?.price}৳
+                </Typography>
+
+                <Typography mt={1}>
+                  {product?.basicInfo?.shortDescription}
+                </Typography>
+
+                {/* Color */}
+                <Typography variant="h6" fontWeight={600} mt={2}>
                   Color:{" "}
                   <Box component="span" fontWeight={500} fontSize="1rem">
-                    Black/White
+                    {product?.variation?.color}
                   </Box>
                 </Typography>
 
+                {/* Sizes */}
                 <Box
                   component="span"
                   fontWeight={500}
@@ -95,23 +196,29 @@ const ProductDetails = () => {
                   gap={2}
                 >
                   <Typography variant="h6" fontWeight={600}>
-                    Size:{" "}
+                    Size:
                   </Typography>
+
                   <div className="flex gap-4">
-                    {sizes.map((size: string, index: number) => (
-                      <button
-                        key={index}
-                        className={`w-[42px] h-[32px] border text-[15px] font-medium transition-all duration-300`}
-                      >
-                        {size}
-                      </button>
-                    ))}
+                    {product?.variation?.size?.map(
+                      (size: string, index: number) => (
+                        <button
+                          key={index}
+                          className="w-[42px] h-[32px] border text-[15px] font-medium transition-all duration-300"
+                        >
+                          {size}
+                        </button>
+                      ),
+                    )}
                   </div>
                 </Box>
+
+                {/* Quantity */}
                 <Stack direction="row" gap={1} mt={2}>
                   <Typography variant="h6" fontWeight={600}>
                     Quantity:
                   </Typography>
+
                   <Stack direction="row" alignItems="center" gap={1}>
                     <Button
                       variant="outlined"
@@ -121,7 +228,12 @@ const ProductDetails = () => {
                       -
                     </Button>
 
-                    <Typography sx={{ width: "30px", textAlign: "center" }}>
+                    <Typography
+                      sx={{
+                        width: "30px",
+                        textAlign: "center",
+                      }}
+                    >
                       {count}
                     </Typography>
 
@@ -135,6 +247,7 @@ const ProductDetails = () => {
                   </Stack>
                 </Stack>
 
+                {/* Button */}
                 <Box mt={2}>
                   <Button
                     variant="contained"
@@ -144,7 +257,9 @@ const ProductDetails = () => {
                     Save Cart
                   </Button>
                 </Box>
-                <Box>
+
+                {/* FAQ */}
+                <Box mt={3}>
                   <FAQSection />
                 </Box>
               </Box>
@@ -152,27 +267,50 @@ const ProductDetails = () => {
           </Grid>
         </Grid>
 
-        {/* order summary */}
-        <Grid item xs={12} md={4} sx={{ mt: { xs: "25px", md: "52px" } }}>
+        {/* Order Summary */}
+        <Grid
+          item
+          xs={12}
+          md={4}
+          sx={{
+            mt: {
+              xs: "25px",
+              md: "52px",
+            },
+          }}
+        >
           <Box bgcolor="#F5F5F7" borderRadius={3} p={2.5}>
             <Typography variant="h5" fontWeight={700}>
               Order Summary
             </Typography>
+
             <Divider sx={{ mt: "10px" }} />
+
             <Box display="flex" justifyContent="space-between" mt={4}>
               <Typography>Sub total</Typography>
-              <Typography>{550 * count}৳</Typography>
+
+              <Typography>
+                {product?.pricingInventory?.discountPrice * count}৳
+              </Typography>
             </Box>
+
             <Box display="flex" justifyContent="space-between" mt={1}>
               <Typography fontWeight={600}>VAT</Typography>
+
               <Typography>50৳</Typography>
             </Box>
+
             <Divider sx={{ mt: "20px" }} />
+
             <Box display="flex" justifyContent="space-between" mt={1}>
               <Typography fontWeight={600}>Total</Typography>
-              <Typography>BDT {550 * count + 50}৳</Typography>
+
+              <Typography>
+                BDT {product?.pricingInventory?.discountPrice * count + 50}৳
+              </Typography>
             </Box>
           </Box>
+
           <Button variant="contained" fullWidth sx={{ mt: "30px" }}>
             Proceed to CheckOut
           </Button>
