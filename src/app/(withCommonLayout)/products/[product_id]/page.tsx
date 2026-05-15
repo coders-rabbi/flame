@@ -13,7 +13,7 @@ import Image from "next/image";
 import ProductImg01 from "@/assets/image/4.jpeg";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useEffect, useState } from "react";
-import FAQSection from "@/components/ui/productsDescription/productsDescription";
+import ProductDescription from "@/components/ui/productsDescription/productsDescription";
 
 interface PageProps {
   params: {
@@ -268,7 +268,7 @@ const ProductDetails = ({ params }: PageProps) => {
 
                 {/* FAQ */}
                 <Box mt={3}>
-                  <FAQSection />
+                  <ProductDescription description={product.basicInfo.longDescription} />
                 </Box>
               </Box>
             </Grid>

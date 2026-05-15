@@ -10,8 +10,7 @@ type TFAQ = {
 const faqData: TFAQ[] = [
   {
     question: "Details",
-    answer:
-      "এই গ্রীষ্মে আরাম এবং স্টাইলের পারফেক্ট কম্বিনেশন নিয়ে এলো আমাদের নতুন ক্যাজুয়াল টি-শার্ট। ১০০% প্রিমিয়াম সুতি কাপড়ে তৈরি, যা সারাদিন আপনাকে রাখবে আরামদায়ক ও সতেজ।",
+    answer: "",
   },
   {
     question: "Metarials",
@@ -25,7 +24,13 @@ const faqData: TFAQ[] = [
   },
 ];
 
-export default function FAQSection(): JSX.Element {
+interface ProductDescriptionProps {
+  description?: string;
+}
+
+export default function ProductDescription({
+  description,
+}: ProductDescriptionProps): JSX.Element {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number): void => {
@@ -47,7 +52,7 @@ export default function FAQSection(): JSX.Element {
             </button>
 
             {openIndex === index && (
-              <div className="pb-5 text-gray-600">{faq.answer}</div>
+              <div className="pb-5 text-gray-600">{description}</div>
             )}
           </div>
         ))}
