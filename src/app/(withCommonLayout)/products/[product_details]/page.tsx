@@ -13,13 +13,10 @@ import Image from "next/image";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useState } from "react";
 import FAQSection from "@/components/ui/productsDescription/productsDescription";
-import useProducts from "@/hooks/useProducts";
+// import useProducts from "@/hooks/useProducts";
 
 const ProductDetails = () => {
-  const { products, loading, error } = useProducts();
   const [count, setCount] = useState(1);
-
-  console.log(products);
 
   const handleIncrement = () => {
     setCount((prev) => prev + 1);

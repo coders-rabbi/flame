@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 // ডাটা টাইপ ডিক্লেয়ারেশন
-export interface Product {
+export interface TProduct {
   id: number;
 
   basicInfo: {
@@ -48,7 +48,7 @@ export interface Product {
 }
 
 const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<TProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

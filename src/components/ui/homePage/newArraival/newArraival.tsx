@@ -1,3 +1,4 @@
+"use client";
 import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import img03 from "@/assets/image/3.jpeg";
 import img04 from "@/assets/image/4.jpeg";
 import Link from "next/link";
 import { Height } from "@mui/icons-material";
+import useProducts, { TProduct } from "@/hooks/useProducts";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -14,6 +16,7 @@ const playfair = Playfair_Display({
 });
 
 const NewArraival = () => {
+  const { products, loading, error } = useProducts();
   return (
     <Container maxWidth="lg">
       <Typography
@@ -47,146 +50,45 @@ const NewArraival = () => {
         alignItems="center"
         justifyContent="center"
       >
-        {/* Card 1 */}
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img01}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-              objectFit="cover"
-            />
-            <Box p={1}>
-              <Typography variant="h6" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                fontSize="1rem"
-                fontWeight={700}
-                color="primary.main"
-                fontFamily="Inter, Circular"
-              >
-                BDT: 550৳
-              </Typography>
-            </Box>
-            <Box px={1} pb={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
-
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img02}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-              objectFit="cover"
-            />
-            <Box p={1}>
-              <Typography variant="h6" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                fontSize="1rem"
-                fontWeight={700}
-                color="primary.main"
-                fontFamily="Inter, Circular"
-              >
-                BDT: 550৳
-              </Typography>
-            </Box>
-            <Box px={1} pb={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
-
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img03}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-              objectFit="cover"
-            />
-            <Box p={1}>
-              <Typography variant="h6" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                fontSize="1rem"
-                fontWeight={700}
-                color="primary.main"
-                fontFamily="Inter, Circular"
-              >
-                BDT: 550৳
-              </Typography>
-            </Box>
-            <Box px={1} pb={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
-
-        <Grid item xs={6} sm={4} md={3}>
-          <Card sx={{ maxWidth: "100%" }}>
-            <Image
-              src={img04}
-              alt="New Arrival"
-              style={{ width: "100%", maxHeight: "300px", height: "300px" }}
-              objectFit="cover"
-            />
-            <Box p={1}>
-              <Typography variant="h6" component="h2">
-                New Arrival
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Discover the latest trends in fashion and lifestyle with our new
-                arrivals.
-              </Typography>
-              <Typography
-                fontSize="1rem"
-                fontWeight={700}
-                color="primary.main"
-                fontFamily="Inter, Circular"
-              >
-                BDT: 550৳
-              </Typography>
-            </Box>
-            <Box px={1} pb={1}>
-              <Link href="/product/1" passHref>
-                <Button variant="contained" fullWidth>
-                  Order Now
-                </Button>
-              </Link>
-            </Box>
-          </Card>
-        </Grid>
+        {products.map((product: TProduct) => {
+          return (
+            <Grid item xs={6} sm={4} md={3} key={product.id}>
+              <Card sx={{ maxWidth: "100%" }}>
+                <Image
+                  src={img04}
+                  alt={product.basicInfo?.productName}
+                  style={{ width: "100%", maxHeight: "300px", height: "300px" }}
+                  objectFit="cover"
+                  width={300}
+                  height={300}
+                />
+                <Box p={1}>
+                  <Typography variant="h6" component="h2">
+                    {product.basicInfo?.productName}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {product.basicInfo?.shortDescription}
+                  </Typography>
+                  <Typography
+                    fontSize="1rem"
+                    fontWeight={700}
+                    color="primary.main"
+                    fontFamily="Inter, Circular"
+                  >
+                    BDT: {product.pricingInventory?.price}৳
+                  </Typography>
+                </Box>
+                <Box px={1} pb={1}>
+                  <Link href={`/products/${product.id}`} passHref>
+                    <Button variant="contained" fullWidth>
+                      Order Now
+                    </Button>
+                  </Link>
+                </Box>
+              </Card>
+            </Grid>
+          );
+        })}
 
         <Box mt={4} display="flex" justifyContent="center" width="100%">
           <Link href="/products" passHref>
