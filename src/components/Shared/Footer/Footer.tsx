@@ -12,6 +12,8 @@ import {
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import logo from "@/assets/logo/logo.png";
+import Image from "next/image";
 
 const Footer = () => {
   // লিস্ট আইটেমগুলো
@@ -44,9 +46,9 @@ const Footer = () => {
       >
         {/* লোগো এবং কন্টাক্ট সেকশন */}
         <Grid item xs={12} sm={6} md={3}>
-          <Typography variant="h5" fontWeight="bold" color="primary" mb={2}>
-            Flame
-          </Typography>
+          <Box mb={1.5}>
+            <Image src={logo} alt="logo" style={{width: "150px"}} />
+          </Box>
 
           <Stack direction="row" alignItems="center" spacing={1} mb={1.5}>
             <EmailIcon fontSize="small" color="action" />

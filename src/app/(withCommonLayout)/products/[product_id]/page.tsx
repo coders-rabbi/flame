@@ -14,6 +14,8 @@ import ProductImg01 from "@/assets/image/4.jpeg";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useEffect, useState } from "react";
 import ProductDescription from "@/components/ui/productsDescription/productsDescription";
+import Ordersummary from "@/components/ui/ordersummary/ordersummary";
+import { useRouter } from "next/navigation";
 
 interface PageProps {
   params: {
@@ -65,6 +67,7 @@ interface Product {
 }
 
 const ProductDetails = ({ params }: PageProps) => {
+  const router = useRouter();
   const [product, setProduct] = useState<Product | null>(null);
   const [count, setCount] = useState<number>(1);
   const [selectedsize, setSize] = useState<string>();
@@ -268,7 +271,9 @@ const ProductDetails = ({ params }: PageProps) => {
 
                 {/* FAQ */}
                 <Box mt={3}>
-                  <ProductDescription description={product.basicInfo.longDescription} />
+                  <ProductDescription
+                    description={product.basicInfo.longDescription}
+                  />
                 </Box>
               </Box>
             </Grid>
@@ -287,7 +292,7 @@ const ProductDetails = ({ params }: PageProps) => {
             },
           }}
         >
-          <Box bgcolor="#F5F5F7" borderRadius={3} p={2.5}>
+          {/* <Box bgcolor="#F5F5F7" borderRadius={3} p={2.5}>
             <Typography variant="h5" fontWeight={700}>
               Order Summary
             </Typography>
@@ -317,9 +322,22 @@ const ProductDetails = ({ params }: PageProps) => {
                 BDT {product?.pricingInventory?.discountPrice * count + 50}৳
               </Typography>
             </Box>
-          </Box>
+          </Box> */}
+          <Ordersummary
+            price={product?.pricingInventory?.discountPrice}
+            count={count}
+          />
 
-          <Button variant="contained" fullWidth sx={{ mt: "30px" }}>
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{ mt: "30px" }}
+            onClick={() => {
+              router.push(
+                `/checkout/shipping_address?productId=${product.id}&price=${product.pricingInventory.discountPrice}&count=${count}`
+              );
+            }}
+          >
             Proceed to CheckOut
           </Button>
         </Grid>
