@@ -1,3 +1,4 @@
+"use client";
 import Ordersummary from "@/components/ui/ordersummary/ordersummary";
 import {
   Box,
@@ -8,7 +9,16 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useSearchParams } from "next/navigation";
+
 const Shipping_Address = () => {
+  const searchParams = useSearchParams();
+  // Receive props from URL query params
+  const productId = searchParams.get("productId");
+  const price = Number(searchParams.get("price"));
+  const count = Number(searchParams.get("count"));
+
+  console.log({ productId, price, count });
   return (
     <Container>
       <Grid container spacing={2}>
@@ -37,7 +47,6 @@ const Shipping_Address = () => {
                 <Typography mb={1} fontSize="14px" fontWeight={600}>
                   নামের প্রথম অংশ
                 </Typography>
-
                 <TextField
                   fullWidth
                   placeholder="রাব্বি"
@@ -173,7 +182,7 @@ const Shipping_Address = () => {
           </Box>
         </Grid>
         <Grid xs={12} md={5} mt={4}>
-          <Ordersummary />
+          <Ordersummary price={price} count={count} />
         </Grid>
       </Grid>
     </Container>
